@@ -17,13 +17,13 @@ app.use(cors());
 
 async function startServer() {
   try {
-    // if (process.env.CLUSTER) {
-    // await mongoose.connect(process.env.CLUSTER);
+    if (process.env.CLUSTER) {
+      await mongoose.connect(process.env.CLUSTER);
 
-    app.listen(PORT, () => {
-      console.log("Server started on PORT: ", PORT);
-    });
-    // }
+      app.listen(PORT, () => {
+        console.log("Server started on PORT: ", PORT);
+      });
+    }
   } catch (error) {
     return console.log(`Server have some errors: ${error}`);
   }
