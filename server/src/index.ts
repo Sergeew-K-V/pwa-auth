@@ -18,6 +18,7 @@ app.use(cors());
 async function startServer() {
   try {
     if (process.env.CLUSTER) {
+      mongoose.set("strictQuery", false);
       await mongoose.connect(process.env.CLUSTER);
 
       app.listen(PORT, () => {
