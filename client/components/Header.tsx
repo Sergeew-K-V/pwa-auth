@@ -1,9 +1,27 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+
+const linkList = [
+  {
+    title: 'Home',
+    href: '/',
+  },
+  {
+    title: 'Gallery',
+    href: '/gallery',
+  },
+  {
+    title: 'Account',
+    href: '/account',
+  },
+]
 
 const Header = (): JSX.Element => {
+  const { route } = useRouter()
+
   return (
-    <div className='grid grid-cols-4 sticky items-center gap-x-4 top-0'>
+    <div className='grid grid-cols-4 sticky items-center gap-x-4 top-0 border-b-2 p-2'>
       <div className='ml-8'>
         <Link href={'/'}>
           <Image className='w-16' src={'/LogoKitchen.svg'} alt='search' width={100} height={100} />
@@ -12,21 +30,18 @@ const Header = (): JSX.Element => {
       <div className='grid col-start-2 col-end-4 justify-items-start'>
         <nav>
           <ul className='grid grid-cols-3 gap-6'>
-            <li>
-              <Link className='font-medium hover:underline' href='/'>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link className='font-medium hover:underline' href='/gallery'>
-                Gallery
-              </Link>
-            </li>
-            <li>
-              <Link className='font-medium hover:underline' href='/account'>
-                Account
-              </Link>
-            </li>
+            {linkList.map((link) => (
+              <li key={link.href}>
+                <Link
+                  className={`font-medium hover:underline ${
+                    route === link.href ? 'underline' : ' '
+                  }`}
+                  href={link.href}
+                >
+                  {link.title}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
