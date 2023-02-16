@@ -1,25 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { languageList, linkList } from '@/constants'
 import { useRouter } from 'next/router'
-
-const linkList = [
-  {
-    title: 'Home',
-    href: '/',
-  },
-  {
-    title: 'Gallery',
-    href: '/gallery',
-  },
-  {
-    title: 'Account',
-    href: '/account',
-  },
-]
 
 const Header = (): JSX.Element => {
   const { route } = useRouter()
-
   return (
     <div className='grid grid-cols-4 sticky items-center gap-x-4 top-0 border-b-2 p-2'>
       <div className='ml-8'>
@@ -48,8 +33,11 @@ const Header = (): JSX.Element => {
       <div className='grid grid-cols-3 gap-x-8 col-start-4 justify-items-center'>
         <div>
           <select className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'>
-            <option value='RU'>Русский</option>
-            <option value='US'>English</option>
+            {languageList.map((language) => (
+              <option key={language.value} value={language.value}>
+                {language.displayName}
+              </option>
+            ))}
           </select>
         </div>
         <div>
