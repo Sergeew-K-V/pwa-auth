@@ -61,7 +61,7 @@ const Header = (): JSX.Element => {
           </label>
           <div className='relative items-center'>
             <Image
-              className='w-5 absolute left-2 top-1/2 -translate-y-1/2'
+              className='w-5 absolute left-2 top-1/2 -translate-y-1/2 cursor-pointer'
               src={'/magnifying-glass-backup-svgrepo-com.svg'}
               alt='search'
               width={100}
