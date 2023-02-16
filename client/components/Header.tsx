@@ -3,15 +3,15 @@ import Link from 'next/link'
 
 const Header = (): JSX.Element => {
   return (
-    <div className='grid grid-cols-3 sticky items-center gap-x-4 top-0'>
+    <div className='grid grid-cols-4 sticky items-center gap-x-4 top-0'>
       <div className='ml-8'>
         <Link href={'/'}>
           <Image className='w-16' src={'/LogoKitchen.svg'} alt='search' width={100} height={100} />
         </Link>
       </div>
-      <div>
+      <div className='grid col-start-2 col-end-4 justify-items-start'>
         <nav>
-          <ul className='grid grid-cols-3'>
+          <ul className='grid grid-cols-3 gap-6'>
             <li>
               <Link className='font-medium hover:underline' href='/'>
                 Home
@@ -30,10 +30,10 @@ const Header = (): JSX.Element => {
           </ul>
         </nav>
       </div>
-      <div className='grid grid-cols-3 gap-x-8'>
+      <div className='grid grid-cols-3 gap-x-8 col-start-4 justify-items-center'>
         <div>
           <select className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'>
-            <option selected>Русский</option>
+            <option value='RU'>Русский</option>
             <option value='US'>English</option>
           </select>
         </div>
