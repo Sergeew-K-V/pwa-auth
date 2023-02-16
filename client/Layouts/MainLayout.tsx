@@ -1,4 +1,4 @@
-import { Footer, Header } from '@components/index'
+import { Footer, Header } from '@/components'
 import { ReactElement } from 'react'
 
 interface IMainLayout {
